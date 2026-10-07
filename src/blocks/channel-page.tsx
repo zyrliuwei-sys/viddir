@@ -91,7 +91,9 @@ function AutoChannelContent({ channel }: { channel: ChannelRecord }) {
       >
         <div className="ai-index-detail-insights-head">
           <p className="ai-index-eyebrow">{m['seo.channel.facts']()}</p>
-          <h2 id={`channel-facts-${channel.slug}`}>{channel.description}</h2>
+          <h2 id={`channel-facts-${channel.slug}`}>
+            {m['seo.channel.facts_title']({ name: channel.name })}
+          </h2>
         </div>
         <div className="ai-index-detail-facts ai-index-channel-facts">
           <div>

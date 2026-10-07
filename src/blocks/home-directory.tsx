@@ -39,16 +39,25 @@ const FEATURED_PRODUCT_SLUGS = [
   'dreamina-migos-ai-video',
 ] as const;
 
-/** Featured tools first, then the rest of the catalog in its own order. */
+/**
+ * Trending keyword pages first (newest first, so each new keyword page gets a
+ * homepage link right away), then featured tools, then the rest in catalog order.
+ */
 function orderProducts(products: CatalogProduct[]) {
   const rank = new Map<string, number>(
     FEATURED_PRODUCT_SLUGS.map((slug, index) => [slug, index])
   );
-  return [...products].sort(
-    (a, b) =>
-      (rank.get(a.slug) ?? Number.MAX_SAFE_INTEGER) -
-      (rank.get(b.slug) ?? Number.MAX_SAFE_INTEGER)
-  );
+  const trending = products
+    .filter((product) => product.seoKeyword?.trim())
+    .sort((a, b) => b.sourceUpdatedAt.localeCompare(a.sourceUpdatedAt));
+  const rest = products
+    .filter((product) => !product.seoKeyword?.trim())
+    .sort(
+      (a, b) =>
+        (rank.get(a.slug) ?? Number.MAX_SAFE_INTEGER) -
+        (rank.get(b.slug) ?? Number.MAX_SAFE_INTEGER)
+    );
+  return [...trending, ...rest];
 }
 
 /**

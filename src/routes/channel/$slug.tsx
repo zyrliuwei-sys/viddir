@@ -1,6 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router';
 
-import { envConfigs } from '@/config';
 import {
   autoChannelMeta,
   findChannel,
@@ -10,8 +9,10 @@ import {
   type SeoFaq,
   type SeoMeta,
 } from '@/lib/seo-content';
-import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
+import { getLocale } from '@/paraglide/runtime.js';
 import { ChannelPage } from '@/blocks/channel-page';
+
+import { localizedLinks } from '../-seo-route';
 
 type LoaderData = {
   channel: ChannelRecord;
@@ -33,24 +34,16 @@ export const Route = createFileRoute('/channel/$slug')({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const { channel, meta, locale } = loaderData;
-    const urlFor = (loc: string) =>
-      localizeUrl(`${envConfigs.app_url}/channel/${channel.slug}`, {
-        locale: loc as ReturnType<typeof getLocale>,
-      }).href;
+    // Channel copy is English-only — the /zh URL canonicalizes to it.
+    const { links } = localizedLinks(`/channel/${channel.slug}`, locale, [
+      'en',
+    ]);
     return {
       meta: [
         { title: meta.title },
         { name: 'description', content: meta.description },
       ],
-      links: [
-        { rel: 'canonical', href: urlFor(locale) },
-        ...locales.map((loc) => ({
-          rel: 'alternate',
-          hrefLang: loc,
-          href: urlFor(loc),
-        })),
-        { rel: 'alternate', hrefLang: 'x-default', href: urlFor('en') },
-      ],
+      links,
     };
   },
   component: () => {

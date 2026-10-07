@@ -1,13 +1,18 @@
 {
   "route": "/",
   "meta": {
-    "title": "AI Tools Directory: Find the Best AI Tools for Every Task",
-    "description": "Browse a curated AI tools directory for video, image, writing, research, coding, voice and music. Compare what each tool does and find the right one fast."
+    "title": "AI Tools Directory: Trending & New AI Tools | viddir",
+    "description": "Find the AI tools people are searching for right now: maths solvers, study AI, image, video and writing tools. See what each does and how to use it."
   },
-  "h1": "AI tools directory: discover AI tools worth using",
+  "h1": "AI tools directory: trending AI tools, explained",
   "keywords": {
     "primary": "ai tools directory",
-    "secondary": ["ai directory", "ai tools list", "best ai tools"]
+    "secondary": [
+      "trending ai tools",
+      "new ai tools",
+      "best ai tools",
+      "ai tools list"
+    ]
   },
   "faqs": [
     {

@@ -221,7 +221,7 @@ export function AiProductDetail({
             <span>{m['catalog.detail.about']()}</span>
           </div>
           <h2 id={`what-is-${product.slug}`}>
-            {m['catalog.detail.what_is']({ name: product.name })}
+            {m['catalog.detail.what_is']({ name: getProductHeading(product) })}
           </h2>
           <p>{product.seo.whatIs}</p>
         </section>

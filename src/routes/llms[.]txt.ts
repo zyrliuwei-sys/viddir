@@ -1,13 +1,38 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { getProductHeading, getProducts } from '@/lib/mock-ai-products';
 import { baseLocale } from '@/paraglide/runtime.js';
 import { getLocalPosts, mergePosts } from '@/content/posts';
 
 const STATIC_PAGES: { path: string; title: string; description: string }[] = [
-  { path: '', title: 'Home', description: 'Landing page' },
-  { path: '/pricing', title: 'Pricing', description: 'Pricing plans' },
-  { path: '/blog', title: 'Blog', description: 'Blog posts and articles' },
+  {
+    path: '',
+    title: 'AI tools directory',
+    description:
+      'Trending AI tools by category, each with what it does and how to use it',
+  },
+  {
+    path: '/products',
+    title: 'All AI tools',
+    description:
+      'The full AI tools list, searchable and filterable by category',
+  },
+  {
+    path: '/channels',
+    title: 'AI-generated TV channels',
+    description: 'Live AI TV channels and AI streamers you can watch now',
+  },
+  {
+    path: '/real-time',
+    title: 'Real-time AI video',
+    description: 'How live AI video generation works',
+  },
+  {
+    path: '/submit',
+    title: 'Submit an AI tool',
+    description: 'Suggest a tool for the directory',
+  },
 ];
 
 export const Route = createFileRoute('/llms.txt')({
@@ -44,6 +69,13 @@ export const Route = createFileRoute('/llms.txt')({
             (p) => `- [${p.title}](${app_url}${p.path}): ${p.description}`
           ),
         ];
+
+        lines.push('', '## AI tools', '');
+        for (const product of getProducts('en')) {
+          lines.push(
+            `- [${getProductHeading(product)}](${app_url}/products/${product.slug}): ${product.tagline}`
+          );
+        }
 
         if (posts.length > 0) {
           lines.push('', '## Blog Posts', '');

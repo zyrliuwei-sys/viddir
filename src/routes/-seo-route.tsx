@@ -2,7 +2,11 @@ import type { ReactNode } from 'react';
 import { notFound, useLoaderData } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
-import { getSeoPage, type SeoPageData } from '@/lib/seo-content';
+import {
+  getSeoPage,
+  seoPageLocales,
+  type SeoPageData,
+} from '@/lib/seo-content';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { SeoPage } from '@/blocks/seo-page';
 
@@ -10,21 +14,60 @@ type LoaderData = SeoPageData & { locale: string };
 
 /** Loader for a content-pages route — throws notFound when the pair is missing. */
 export async function seoPageLoader(slug: string): Promise<LoaderData> {
-  const page = await getSeoPage(slug);
+  const locale = getLocale();
+  const page = await getSeoPage(slug, locale);
   if (!page) throw notFound();
-  return { ...page, locale: getLocale() };
+  return { ...page, locale };
 }
 
-/** head() for a content-pages route — meta + canonical/hreflang links. */
-export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
-  if (!loaderData) return {};
-  const { meta } = loaderData.json;
-  const { locale } = loaderData;
-  const socialImage = new URL('/logo.png', envConfigs.app_url).href;
+/**
+ * hreflang/canonical links for a page that exists in `available` locales.
+ * A locale without its own copy renders the English fallback, so it
+ * canonicalizes to the English URL instead of competing as a duplicate.
+ */
+export function localizedLinks(
+  urlPath: string,
+  locale: string,
+  available: readonly string[] = locales
+) {
   const urlFor = (loc: string) =>
     localizeUrl(`${envConfigs.app_url}${urlPath}`, {
       locale: loc as ReturnType<typeof getLocale>,
     }).href;
+  const canonicalLocale = available.includes(locale) ? locale : 'en';
+  const alternates = locales.filter((loc) => available.includes(loc));
+  return {
+    canonical: urlFor(canonicalLocale),
+    links: [
+      { rel: 'canonical', href: urlFor(canonicalLocale) },
+      ...(alternates.length > 1
+        ? [
+            ...alternates.map((loc) => ({
+              rel: 'alternate',
+              hrefLang: loc,
+              href: urlFor(loc),
+            })),
+            { rel: 'alternate', hrefLang: 'x-default', href: urlFor('en') },
+          ]
+        : []),
+    ],
+  };
+}
+
+/** head() for a content-pages route — meta + canonical/hreflang links. */
+export function seoPageHead(
+  urlPath: string,
+  loaderData?: LoaderData,
+  jsonLd?: Record<string, unknown>
+) {
+  if (!loaderData) return {};
+  const { meta } = loaderData.json;
+  const { canonical, links } = localizedLinks(
+    urlPath,
+    loaderData.locale,
+    seoPageLocales(loaderData.slug)
+  );
+  const socialImage = new URL('/logo.png', envConfigs.app_url).href;
   return {
     meta: [
       { title: meta.title },
@@ -32,7 +75,7 @@ export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
       { property: 'og:title', content: meta.title },
       { property: 'og:description', content: meta.description },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: urlFor(locale) },
+      { property: 'og:url', content: canonical },
       { property: 'og:site_name', content: envConfigs.app_name },
       { property: 'og:image', content: socialImage },
       { property: 'og:image:alt', content: meta.title },
@@ -40,16 +83,9 @@ export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
       { name: 'twitter:title', content: meta.title },
       { name: 'twitter:description', content: meta.description },
       { name: 'twitter:image', content: socialImage },
+      ...(jsonLd ? [{ 'script:ld+json': jsonLd }] : []),
     ],
-    links: [
-      { rel: 'canonical', href: urlFor(locale) },
-      ...locales.map((loc) => ({
-        rel: 'alternate',
-        hrefLang: loc,
-        href: urlFor(loc),
-      })),
-      { rel: 'alternate', hrefLang: 'x-default', href: urlFor('en') },
-    ],
+    links,
   };
 }
 

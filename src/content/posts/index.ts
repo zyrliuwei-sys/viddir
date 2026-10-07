@@ -11,10 +11,7 @@ import { baseLocale } from '@/paraglide/runtime.js';
  * fetched through the server functions in ./server.ts and merged with the
  * local posts via the pure helpers below.
  */
-export const BLOG_POST_SLUGS = [
-  'what-is-viddir',
-  'blocks-vs-components',
-] as const;
+export const BLOG_POST_SLUGS: readonly string[] = [];
 
 export type BlogPostMeta = {
   title: string;
@@ -54,7 +51,7 @@ const postModules = import.meta.glob<PostModule>('/src/content/posts/*.mdx', {
 });
 
 export function loadLocalPost(slug: string, locale: string): PostModule | null {
-  if (!BLOG_POST_SLUGS.includes(slug as (typeof BLOG_POST_SLUGS)[number])) {
+  if (!BLOG_POST_SLUGS.includes(slug)) {
     return null;
   }
   return (

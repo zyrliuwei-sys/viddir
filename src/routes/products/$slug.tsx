@@ -11,6 +11,67 @@ import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { AiProductDetail } from '@/blocks/ai-product-detail';
 
+const TITLE_MAX = 60;
+const DESCRIPTION_MAX = 160;
+
+/** CJK characters render about twice as wide as Latin ones in a SERP snippet. */
+function displayWidth(text: string) {
+  let width = 0;
+  for (const char of text) {
+    width += /[\u3000-\u9fff\uff00-\uffef]/.test(char) ? 2 : 1;
+  }
+  return width;
+}
+
+/**
+ * Detail-page <title>: the longest variant that fits Google's ~60-column
+ * display. Keyword pages lead with "Name - Keyword"; others keep the
+ * "official website" angle that matches navigational searches.
+ */
+function getProductTitle(product: CatalogProduct, locale: CatalogLocale) {
+  const heading = getProductHeading(product);
+  const brand = ` | ${envConfigs.app_name}`;
+  const hasKeyword = heading !== product.name;
+  const variants =
+    locale === 'zh'
+      ? [
+          `${heading}：${hasKeyword ? '' : '官网入口、'}是什么、怎么用${brand}`,
+          `${heading}：是什么、怎么用${brand}`,
+          `${heading}${brand}`,
+        ]
+      : [
+          `${heading}: ${hasKeyword ? '' : 'Official Website, '}What It Is & How to Use${brand}`,
+          `${heading}: What It Is & How to Use${brand}`,
+          `${heading}: What It Is & How to Use`,
+          `${heading}${brand}`,
+        ];
+  return variants.find((title) => displayWidth(title) <= TITLE_MAX) ?? heading;
+}
+
+/**
+ * Trim to ~160 display columns (≈80 CJK characters) at a sentence or word
+ * boundary so search snippets aren't cut mid-word.
+ */
+function clampDescription(text: string) {
+  if (displayWidth(text) <= DESCRIPTION_MAX) return text;
+  let cut = '';
+  for (const char of text) {
+    if (displayWidth(cut + char) > DESCRIPTION_MAX - 1) break;
+    cut += char;
+  }
+  const sentenceEnd = Math.max(
+    cut.lastIndexOf('. '),
+    cut.lastIndexOf('。'),
+    cut.lastIndexOf('！'),
+    cut.lastIndexOf('？')
+  );
+  if (displayWidth(cut.slice(0, sentenceEnd + 1)) >= 80) {
+    return cut.slice(0, sentenceEnd + 1).trim();
+  }
+  const wordEnd = cut.lastIndexOf(' ');
+  return `${(wordEnd >= 40 ? cut.slice(0, wordEnd) : cut).trimEnd()}…`;
+}
+
 function getProductSchema(
   product: CatalogProduct | null,
   canonical: string,
@@ -107,12 +168,8 @@ export const Route = createFileRoute('/products/$slug')({
         locale,
       }
     ).href;
-    const heading = getProductHeading(product);
-    const title =
-      locale === 'zh'
-        ? `${heading}：官网入口、是什么、怎么用 | ${envConfigs.app_name}`
-        : `${heading}: Official Website, What It Is & How to Use | ${envConfigs.app_name}`;
-    const description = product.seo.whatIs;
+    const title = getProductTitle(product, locale);
+    const description = clampDescription(product.seo.whatIs);
     const previewImage = product.previewImage
       ? new URL(product.previewImage, envConfigs.app_url).href
       : undefined;

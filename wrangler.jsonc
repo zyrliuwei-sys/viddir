@@ -12,6 +12,7 @@
     "DATABASE_PROVIDER": "postgresql",
     "VITE_APP_URL": "https://www.viddir.com",
     "VITE_APP_NAME": "viddir",
+    "VITE_APP_DESCRIPTION": "A directory of trending AI tools: what each tool does, how to use it, and where to find it.",
   },
   "hyperdrive": [
     {

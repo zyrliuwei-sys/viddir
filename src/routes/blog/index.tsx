@@ -28,6 +28,10 @@ export const Route = createFileRoute('/blog/')({
           name: 'description',
           content: m['blog.description']({}, { locale: locale as any }),
         },
+        // An empty blog index is a thin page — keep it out of the index until posts exist.
+        ...(loaderData?.posts.length
+          ? []
+          : [{ name: 'robots', content: 'noindex, follow' }]),
       ],
       links: [
         { rel: 'canonical', href: urlFor(locale ?? 'en') },

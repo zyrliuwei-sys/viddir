@@ -19,6 +19,8 @@ export const Route = createFileRoute('/pricing')({
       ? [
           { title: loaderData.title },
           { name: 'description', content: loaderData.description },
+          // Template pricing page — the directory sells nothing, keep it unindexed.
+          { name: 'robots', content: 'noindex, follow' },
         ]
       : [],
   }),

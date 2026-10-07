@@ -14,6 +14,7 @@ content/
   links.json                  # Internal link map (canonical anchors)
   pages/                      # Static pages — one JSON + one MD per route
     home.json / home.md               → /
+    home.zh.json                      → /zh (meta + H1; MD falls back to English)
     director.json / director.md       → /director
     tv-show-generator.json / .md      → /tv-show-generator
     real-time.json / real-time.md     → /real-time
@@ -24,6 +25,14 @@ content/
     _template.json / _template.md     # Pattern reference (not a route)
     <slug>.json / <slug>.md           → /channel/<slug>
 ```
+
+## Localized copy
+
+A page is translated by adding `<slug>.<locale>.json` (and optionally
+`<slug>.<locale>.md`) next to the English pair. Pages without a translation
+still render under `/zh`, but that URL canonicalizes to the English page and
+is left out of the sitemap and hreflang, so it never competes as a duplicate.
+Channel pages are English-only.
 
 ## Page JSON schema (pages/ and channels/)
 

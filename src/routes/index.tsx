@@ -1,12 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { envConfigs } from '@/config';
 import { type CatalogLocale } from '@/lib/mock-ai-products';
 import { listCatalogProductsFn } from '@/lib/product-submissions-server';
+import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
 import { HomeDirectory } from '@/blocks/home-directory';
 
 import { seoPageHead, seoPageLoader } from './-seo-route';
 
-/** Homepage: the AI tools directory (primary keyword "ai tools directory"). */
+/** Homepage: the trending AI tools directory (primary keyword "ai tools directory"). */
 export const Route = createFileRoute('/')({
   loader: async () => {
     const page = await seoPageLoader('home');
@@ -20,7 +22,21 @@ export const Route = createFileRoute('/')({
       products,
     };
   },
-  head: ({ loaderData }) => seoPageHead('/', loaderData),
+  head: ({ loaderData }) =>
+    seoPageHead(
+      '/',
+      loaderData,
+      loaderData && {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: envConfigs.app_name,
+        url: localizeUrl(`${envConfigs.app_url}/`, {
+          locale: loaderData.locale as ReturnType<typeof getLocale>,
+        }).href,
+        description: loaderData.json.meta.description,
+        inLanguage: loaderData.locale,
+      }
+    ),
   component: HomePage,
 });
 

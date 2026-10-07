@@ -79,6 +79,8 @@ export interface SeoPageData {
   slug: string;
   json: SeoPageJson;
   segments: Segment[];
+  /** Locale the copy is written in — differs from the request when it fell back to English. */
+  contentLocale: string;
 }
 
 export interface CuratedChannelData {
@@ -229,18 +231,43 @@ export function cutSegmentsBetween(
   return kept;
 }
 
-/** Full page data for a static SEO page (`home`, `director`, …). Null if missing. */
-export async function getSeoPage(slug: string): Promise<SeoPageData | null> {
-  const [jsonMod, mdMod] = await Promise.all([
-    pagesJsonModules[`/content/pages/${slug}.json`]?.(),
-    pagesMdModules[`/content/pages/${slug}.md`]?.(),
-  ]);
+/** Locales a static SEO page has copy for — English always, others via `<slug>.<locale>.json`. */
+export function seoPageLocales(slug: string): string[] {
+  const prefix = `/content/pages/${slug}.`;
+  const translated = Object.keys(pagesJsonModules)
+    .filter((key) => key.startsWith(prefix))
+    .map((key) => key.slice(prefix.length).replace(/\.?json$/, ''))
+    .filter(Boolean);
+  return ['en', ...translated];
+}
+
+/**
+ * Full page data for a static SEO page (`home`, `director`, …). Null if missing.
+ * Localized copy lives next to the English pair as `<slug>.<locale>.json` /
+ * `<slug>.<locale>.md`; each falls back to the English file on its own.
+ */
+export async function getSeoPage(
+  slug: string,
+  locale = 'en'
+): Promise<SeoPageData | null> {
+  const localized = locale !== 'en';
+  const jsonLoader =
+    (localized && pagesJsonModules[`/content/pages/${slug}.${locale}.json`]) ||
+    pagesJsonModules[`/content/pages/${slug}.json`];
+  const mdLoader =
+    (localized && pagesMdModules[`/content/pages/${slug}.${locale}.md`]) ||
+    pagesMdModules[`/content/pages/${slug}.md`];
+  const [jsonMod, mdMod] = await Promise.all([jsonLoader?.(), mdLoader?.()]);
   const [json, md] = await Promise.all([
     resolveGlob<SeoPageJson>(jsonMod),
     resolveGlob<string>(mdMod),
   ]);
   if (!json || !md) return null;
-  return { slug, json, segments: parseSegments(md) };
+  const contentLocale =
+    localized && pagesJsonModules[`/content/pages/${slug}.${locale}.json`]
+      ? locale
+      : 'en';
+  return { slug, json, segments: parseSegments(md), contentLocale };
 }
 
 /** Curated copy for a channel page. Null when the channel has no MD yet. */
@@ -347,7 +374,7 @@ export function buildFaqJsonLd(faqs?: SeoFaq[]): string | null {
 
 /** Auto-generated meta for channels without curated copy (batch 2 upgrades these). */
 export function autoChannelMeta(channel: ChannelRecord): SeoMeta {
-  const title = `${channel.name} AI Livestream`.slice(0, 60);
+  const title = `${channel.name}: AI Livestream Channel`.slice(0, 60);
   const description =
     channel.description.length > 160
       ? `${channel.description.slice(0, 157).trimEnd()}…`
