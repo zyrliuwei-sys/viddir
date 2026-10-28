@@ -2476,6 +2476,7 @@ const realtimeProducts: MockAiProduct[] = [
     ...sharedProductFields,
     slug: 'h3-max-director',
     name: 'H3 Max Director',
+    aliases: ['MiniMax H3', 'MiniMax H3 Max', 'H3 Max', 'H3 Max on fal'],
     maker: 'fal + MiniMax',
     website: 'https://fal.ai/h3-max-director',
     logo: 'https://fal.ai/favicon.ico',
@@ -4328,7 +4329,7 @@ const localModelProducts: MockAiProduct[] = [
     lastVerifiedAt: '2026-09-29',
     category: 'image-to-video',
     categoryLabel: productCategoryLabels['image-to-video'],
-    relatedSlugs: ['migos-ai-song'],
+    relatedSlugs: ['migos-ai-song', 'seedance-2-5'],
     tags: [
       tag('two-photos', 'Two-photo workflow', '双照片工作流'),
       tag('seedance', 'Seedance 2.5', 'Seedance 2.5'),
@@ -4452,6 +4453,782 @@ const localModelProducts: MockAiProduct[] = [
           '为什么两张脸有时会混在一起？',
           'Use separate, clear reference photos and assign fixed left and right positions in the prompt. Regenerate if the identities drift.',
           '使用两张独立且清晰的参考照片，在提示词中固定左右位置；若人物身份漂移，就重新生成。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'zombie-ai-trend',
+    name: 'Zombie AI Trend',
+    aliases: [
+      'Zombie Trend',
+      'AI Zombie Trend',
+      'Zombie AI Video',
+      'Zombie Couple Trend',
+      'Zombie Love Story Trend',
+    ],
+    seoKeyword: 'Zombie Trend',
+    maker: 'Dreamina by CapCut',
+    website: 'https://dreamina.capcut.com/',
+    logo: 'https://dreamina.capcut.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-05',
+    category: 'image-to-video',
+    categoryLabel: productCategoryLabels['image-to-video'],
+    relatedSlugs: ['seedance-2-5', 'dreamina-migos-ai-video'],
+    tags: [
+      tag('zombie-trend', 'Zombie trend', '僵尸热梗'),
+      tag('ai-video', 'AI video', 'AI 视频'),
+      tag('two-photos', 'Two-photo workflow', '双照片工作流'),
+      tag('cinematic-story', 'Cinematic story', '电影感短剧'),
+    ],
+    tagline: text(
+      'The viral couple zombie video: one turns, the other can’t pull the trigger.',
+      '爆火的情侣僵尸视频：一人变成僵尸，另一人始终下不了手。'
+    ),
+    description: text(
+      'The Zombie Trend is an October 2026 short-video format made from two photos. In a dark apocalypse scene one person turns into a zombie, the other raises a prop gun but cannot shoot, a warm flashback of the two plays, and the gun is lowered. Most creators generate the 12–15 second vertical clip in Dreamina with Seedance, or join two generated scenes in CapCut. It also works with a pet as the one who turns.',
+      'Zombie Trend（僵尸热梗）是 2026 年 10 月走红的双照片短视频玩法：末日暗调场景里，一人变成僵尸，另一人举起道具枪却开不了枪，画面闪回两人温馨的回忆，最后放下枪。多数创作者在 Dreamina 中用 Seedance 生成 12–15 秒竖屏短片，或分别生成两段画面后在剪映/CapCut 中拼接；也可以把宠物设为变成僵尸的一方。'
+    ),
+    note: text(
+      'Best for: making the emotional couple or pet zombie clip from your own photos',
+      '适合：用自己的照片制作情侣或宠物版僵尸情感短片'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'One generation covers the whole story: the turn, the hesitation, the memory, and the lowered gun, with both faces kept from your reference photos.',
+        '一次生成就能讲完整个故事：变身、犹豫、回忆、放下枪，并尽量保留两张参考照片中的面孔。'
+      ),
+      problemSolved: text(
+        'Searches for “zombie trend” mix filters, templates, and prompts. This page explains the four-beat format and the shortest route to a clip that matches it.',
+        '搜索“zombie trend”时，滤镜、模板和提示词常混在一起。本页说明这个玩法的四段结构，以及做出同款短片的最短路径。'
+      ),
+      audience: text(
+        'Couples, friends, and pet owners making a short cinematic horror-romance clip with photos they have permission to use.',
+        '使用已获同意的照片，制作电影感恐怖爱情短片的情侣、朋友和宠物主人。'
+      ),
+      pricing: text(
+        'Dreamina uses account-based access and credits; available models, free daily credits, limits, and prices depend on plan and region.',
+        'Dreamina 采用账号和积分机制；可用模型、每日免费积分、额度与价格随套餐和地区变化。'
+      ),
+      market: [
+        text('AI video trends', 'AI 视频热梗'),
+        text('Image to video', '图生视频'),
+        text('Short-form video', '短视频'),
+      ],
+      techStack: [
+        text('Dreamina Seedance video models', 'Dreamina Seedance 视频模型'),
+        text('Two reference photos', '两张参考照片'),
+        text('Story prompt with four beats', '四段式剧情提示词'),
+      ],
+    },
+    specs: [
+      spec(
+        'Story beats',
+        '剧情结构',
+        'The turn · the gun · the memory · the gun lowered',
+        '变身 · 举枪 · 回忆 · 放下枪'
+      ),
+      spec(
+        'Input',
+        '输入',
+        'Two clear front-facing photos (person or pet) + prompt',
+        '两张清晰正脸照片（人或宠物）+ 提示词'
+      ),
+      spec(
+        'Format',
+        '格式',
+        '9:16 vertical · about 12–15 s',
+        '9:16 竖屏 · 约 12–15 秒'
+      ),
+      spec(
+        'Look',
+        '画面特征',
+        'Dark apocalypse grade · grey skin · clouded eyes',
+        '末日暗调 · 灰白皮肤 · 浑浊双眼'
+      ),
+    ],
+    seo: seo(
+      text(
+        'The Zombie Trend, also searched as the zombie AI trend or zombie couple trend, is a viral short video built from two photos. One person becomes a zombie, the partner aims a prop gun but cannot fire, a happy memory of the two flashes on screen, and the gun comes down. Dreamina by CapCut is the tool most tutorials use: upload both photos, describe the four beats, and generate a vertical clip with Seedance. Pet versions, where a cat or dog turns, are popular too.',
+        'Zombie Trend（也被搜索为 zombie AI trend、僵尸情侣热梗）是用两张照片制作的爆款短视频：一人变成僵尸，伴侣举起道具枪却无法开枪，屏幕闪回两人的幸福回忆，最后放下枪。多数教程使用 Dreamina（CapCut 旗下）：上传两张照片，描述四段剧情，用 Seedance 生成竖屏短片。把猫狗设为变成僵尸一方的宠物版也很流行。'
+      ),
+      [
+        step(
+          'Pick two photos',
+          '选择两张照片',
+          'Use clear, front-facing photos of people or pets who agreed to appear. Decide who holds the gun and who turns.',
+          '使用同意出镜的人或宠物的清晰正脸照片，确定谁举枪、谁变成僵尸。'
+        ),
+        step(
+          'Write the four beats',
+          '写好四段剧情',
+          'Prompt the turn (grey skin, clouded eyes, torn clothes), the raised gun, a warm memory of both as themselves, and the gun lowered. Ask to keep each face and hairstyle as photographed.',
+          '提示词依次写变身（灰白皮肤、浑浊双眼、破旧衣服）、举枪、两人原貌的温馨回忆、放下枪，并要求保持照片中的面孔和发型。'
+        ),
+        step(
+          'Generate, check, and add music',
+          '生成、检查并配乐',
+          'Generate a 9:16 clip in Dreamina, check that both identities stay consistent, then add licensed music in CapCut before posting.',
+          '在 Dreamina 中生成 9:16 短片，检查两人面孔是否一致，再在剪映/CapCut 中加入有授权的音乐后发布。'
+        ),
+      ],
+      [
+        text('Two-subject reference workflow', '双主体参考图工作流'),
+        text('Single-generation story clip', '一次生成完整剧情短片'),
+        text('Works for couples, friends, and pets', '情侣、朋友、宠物都适用'),
+        text(
+          'Vertical output for TikTok, Reels, Shorts',
+          '竖屏输出，适合抖音、Reels、Shorts'
+        ),
+      ],
+      [
+        text('Couple zombie love story', '情侣僵尸爱情故事'),
+        text('Pet zombie reunion clip', '宠物变僵尸重逢短片'),
+        text('Halloween horror shorts', '万圣节恐怖短片'),
+      ],
+      [
+        faq(
+          'What is the zombie trend?',
+          'zombie trend 是什么？',
+          'A two-person AI video: one turns into a zombie, the other can’t bring themselves to shoot, a flashback plays, and the gun is lowered. It spread on TikTok in early October 2026.',
+          '一种双人 AI 视频：一人变成僵尸，另一人狠不下心开枪，画面闪回后放下枪。2026 年 10 月初在 TikTok 上走红。'
+        ),
+        faq(
+          'Is it a filter or a template?',
+          '它是滤镜还是模板？',
+          'It is a story format. Older zombie face filters only add makeup; this trend needs an image-to-video generator such as Dreamina, or two generated scenes joined in CapCut.',
+          '它是一种剧情玩法。以前的僵尸滤镜只加妆效；这个热梗需要 Dreamina 这类图生视频工具，或把两段生成画面在剪映/CapCut 中拼接。'
+        ),
+        faq(
+          'Can I use someone else’s photo?',
+          '可以用别人的照片吗？',
+          'Only with their permission. Don’t use photos of strangers or public figures, and label the clip as AI-generated where the platform asks.',
+          '需获得本人同意。不要使用陌生人或公众人物的照片，并按平台要求标注 AI 生成。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'game-merging-ai',
+    name: 'Game Merging AI',
+    aliases: [
+      'AI Game Merging',
+      'Merging Games with AI',
+      'AI Game Mashup',
+      'Game Mashup Mods',
+      'Minecraft in Elden Ring',
+      'Universal Modder',
+    ],
+    seoKeyword: 'Game Merging AI',
+    maker: 'Anthropic Claude Code',
+    website: 'https://claude.com/product/claude-code',
+    logo: 'https://claude.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-05',
+    category: 'coding',
+    categoryLabel: productCategoryLabels.coding,
+    relatedSlugs: ['replit', 'oasis', 'mira'],
+    tags: [
+      tag('game-mashup', 'Game mashups', '游戏融合'),
+      tag('ai-modding', 'AI modding', 'AI 改游戏'),
+      tag('vibe-coding', 'Vibe coding', '氛围编程'),
+      tag('coding-agent', 'Coding agent', '编程智能体'),
+    ],
+    tagline: text(
+      'The viral trend of using AI coding agents to put one game inside another.',
+      '用 AI 编程智能体把一款游戏“塞进”另一款游戏的爆火玩法。'
+    ),
+    description: text(
+      'Game merging AI is the late-September 2026 trend of modders using AI coding agents, mainly Claude Code, to graft one game into another: Minecraft inside Elden Ring, Skate 3 moves in Modern Warfare 2, Mario Kart in Call of Duty Zombies. The agent reads the game files, helps reverse-engineer how the engine works, writes the mod code, and fixes errors as you test. Many clips on X are tech demos rather than finished, playable mods.',
+      'Game merging AI（AI 游戏融合）是 2026 年 9 月底走红的玩法：模组作者借助 AI 编程智能体（主要是 Claude Code）把一款游戏嫁接进另一款，例如把 Minecraft 放进 Elden Ring、在《使命召唤：现代战争 2》里加入 Skate 3 的滑板动作、在 COD 僵尸模式里跑马里奥赛车。智能体会读取游戏文件、协助逆向分析引擎机制、编写模组代码，并在你测试时修复报错。X 上流传的很多片段只是技术演示，并非完整可玩的模组。'
+    ),
+    note: text(
+      'Best for: personal mod experiments on PC games you own',
+      '适合：在自己拥有的 PC 游戏上做个人模组实验'
+    ),
+    image: '',
+    tone: 'cobalt',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'A coding agent does the slow parts of modding (reading unfamiliar code, writing glue code, debugging crashes), so one person can try a mashup idea in hours instead of months.',
+        '编程智能体承担了做模组最耗时的部分（读懂陌生代码、写衔接代码、排查崩溃），一个人几小时内就能尝试一个融合创意，而不是花上几个月。'
+      ),
+      problemSolved: text(
+        'Searches for “game merging AI” bring up viral clips with no explanation. This page explains what the trend is, which tool is behind it, how the workflow goes, and its limits.',
+        '搜索“game merging AI”时大多只能看到爆款片段却没有解释。本页说明这个热梗是什么、背后用的是什么工具、工作流程如何，以及它的局限。'
+      ),
+      audience: text(
+        'PC gamers and hobby modders who are comfortable with a terminal and want to experiment with games they own.',
+        '会用命令行、想在自己拥有的游戏上做实验的 PC 玩家和业余模组作者。'
+      ),
+      pricing: text(
+        'Claude Code is included with paid Claude plans (Pro, Max, Team, Enterprise) or billed by API usage; large mod projects consume a lot of usage.',
+        'Claude Code 包含在 Claude 付费套餐（Pro、Max、Team、Enterprise）中，也可按 API 用量计费；大型模组项目会消耗较多额度。'
+      ),
+      market: [
+        text('Game modding', '游戏模组'),
+        text('AI coding agents', 'AI 编程智能体'),
+        text('Gaming trends', '游戏热梗'),
+      ],
+      techStack: [
+        text('Claude Code agent', 'Claude Code 智能体'),
+        text(
+          'Game modding frameworks and decompilers',
+          '游戏模组框架与反编译工具'
+        ),
+        text('Your own PC game installs', '你本机已安装的 PC 游戏'),
+      ],
+    },
+    specs: [
+      spec(
+        'Main tool',
+        '主要工具',
+        'Claude Code (terminal, IDE, or desktop app)',
+        'Claude Code（终端、IDE 或桌面应用）'
+      ),
+      spec(
+        'Viral examples',
+        '爆款案例',
+        'Minecraft in Elden Ring · Skate 3 in MW2 · Mario Kart in COD Zombies',
+        'Elden Ring 里的 Minecraft · MW2 里的 Skate 3 · COD 僵尸模式里的马里奥赛车'
+      ),
+      spec(
+        'Platform',
+        '平台',
+        'PC games with mod support work best',
+        '支持模组的 PC 游戏效果最好'
+      ),
+      spec(
+        'Skill level',
+        '上手门槛',
+        'Basic terminal use; modding experience helps',
+        '会基本的命令行操作；有模组经验更好'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Game merging AI, also searched as AI game merging or merging games with AI, describes mods that put one video game inside another, built with help from an AI coding agent. The trend took off on X in late September 2026 with clips such as Minecraft running inside Elden Ring. Most creators use Claude Code: they point it at a game folder, ask it to work out how the engine loads content, and have it write and debug the mod. Forbes and Kotaku note that results vary, many clips are demos, and the practice raises copyright questions, so keep it to personal experiments on games you own.',
+        'Game merging AI（也被搜索为 AI game merging、merging games with AI）指借助 AI 编程智能体，把一款电子游戏放进另一款游戏里的模组。这个热梗于 2026 年 9 月底在 X 上走红，代表片段是在 Elden Ring 里运行 Minecraft。多数创作者使用 Claude Code：让它读取游戏目录、分析引擎如何加载内容，再由它编写并调试模组。Forbes 和 Kotaku 都提到效果参差不齐，很多片段只是演示，而且涉及版权问题，因此建议只在自己拥有的游戏上做个人实验。'
+      ),
+      [
+        step(
+          'Pick two games you own',
+          '选两款自己拥有的游戏',
+          'Choose a host game with an active modding scene (mod loaders, documented file formats) and decide what to bring in from the second game: a mechanic, a world, or a mode.',
+          '选一款模组生态活跃（有模组加载器、文件格式有文档）的宿主游戏，并确定要从第二款游戏引入什么：一种玩法、一个世界或一个模式。'
+        ),
+        step(
+          'Set up Claude Code in a mod workspace',
+          '在模组工作区里配置 Claude Code',
+          'Install Claude Code, open a separate folder with the mod loader and your notes, and back up your saves. Ask the agent to explain how the host game loads assets and scripts before writing anything.',
+          '安装 Claude Code，新建一个放置模组加载器和笔记的独立文件夹，并备份存档。在动手写代码前，先让智能体讲清宿主游戏如何加载资源和脚本。'
+        ),
+        step(
+          'Build, test, and iterate',
+          '构建、测试、迭代',
+          'Have the agent write the mod in small steps, launch the game after each one, and paste crash logs back to it. Keep the mod for personal use and don’t share another game’s code or assets.',
+          '让智能体分小步编写模组，每一步后启动游戏测试，把崩溃日志贴回给它修复。模组仅供个人使用，不要分发其他游戏的代码或素材。'
+        ),
+      ],
+      [
+        text(
+          'Reads and explains unfamiliar game code',
+          '读懂并讲解陌生的游戏代码'
+        ),
+        text(
+          'Writes and debugs mod code from plain-language requests',
+          '根据自然语言需求编写并调试模组代码'
+        ),
+        text(
+          'Runs in the terminal, IDE, or desktop app',
+          '可在终端、IDE 或桌面应用中运行'
+        ),
+        text(
+          'Works with existing mod loaders and tools',
+          '可配合现有的模组加载器和工具'
+        ),
+      ],
+      [
+        text('Game mashup experiments', '游戏融合实验'),
+        text('Porting a mechanic between games', '在游戏之间移植玩法'),
+        text('Learning how game engines work', '学习游戏引擎的工作原理'),
+      ],
+      [
+        faq(
+          'What is game merging AI?',
+          'game merging AI 是什么？',
+          'It is a trend, not a single app: modders use AI coding agents such as Claude Code to combine two games, for example Minecraft inside Elden Ring. It spread on X in late September 2026.',
+          '它是一种玩法，而不是某个单独的应用：模组作者用 Claude Code 等 AI 编程智能体把两款游戏融合在一起，例如把 Minecraft 放进 Elden Ring。2026 年 9 月底在 X 上走红。'
+        ),
+        faq(
+          'Are the viral merged games actually playable?',
+          '那些爆火的融合游戏真的能玩吗？',
+          'Some are, but many clips are short tech demos. AI-written mod code can be buggy, and a full merge usually needs a lot of testing and manual fixes.',
+          '有些可以，但很多片段只是简短的技术演示。AI 写的模组代码可能有 bug，完整的融合通常需要大量测试和手动修复。'
+        ),
+        faq(
+          'Is merging games legal?',
+          '融合游戏合法吗？',
+          'It is a legal grey area. Modding a game you own for personal use is common, but distributing another studio’s code or assets, or breaking a game’s terms or anti-cheat, can infringe copyright or get you banned. Never use mods in online multiplayer.',
+          '这属于法律灰色地带。为个人使用修改自己拥有的游戏很常见，但分发其他厂商的代码或素材、违反游戏条款或绕过反作弊，可能侵犯版权或导致封号。不要在在线多人模式中使用模组。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'cue-by-manus',
+    name: 'Cue by Manus',
+    maker: 'Manus',
+    website: 'https://cue.im',
+    logo: 'https://cue.im/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-03',
+    category: 'assistant',
+    categoryLabel: productCategoryLabels.assistant,
+    relatedSlugs: ['manus'],
+    tags: [
+      tag('personal-agent', 'Personal agent', '个人智能体'),
+      tag('agent-email-phone', 'Own email & phone', '专属邮箱与电话'),
+      tag('agent-wallet', 'Agent wallet', '智能体钱包'),
+      tag('multi-agent', 'Multi-agent', '多智能体协作'),
+    ],
+    tagline: text(
+      'Personal AI agents with their own email, phone number, wallet, and computer.',
+      '拥有专属邮箱、电话号码、钱包和电脑的个人 AI 智能体。'
+    ),
+    description: text(
+      'Cue is a standalone app from Manus, launched with Manus 2.0 in September 2026. Each agent you create gets its own email address, phone number, wallet with a spending limit you set, and a computer to work on, so it can send messages, take calls, pay within budget, and finish tasks on its own. It runs on web, desktop, and mobile and is in invite-only early access.',
+      'Cue 是 Manus 推出的独立应用，于 2026 年 9 月随 Manus 2.0 一同发布。你创建的每个智能体都有自己的邮箱地址、电话号码、可设定消费上限的钱包和一台工作电脑，因此能独立收发消息、接听电话、在预算内付款并完成任务。支持网页、桌面和移动端，目前处于邀请制抢先体验阶段。'
+    ),
+    note: text(
+      'Best for: delegating everyday errands to agents that can act on their own',
+      '适合：把日常事务交给能独立行动的智能体'
+    ),
+    image: '',
+    tone: 'amber',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Agents get a real identity to act with: they can email, call, and pay instead of only drafting text for you to send.',
+        '智能体拥有可以行动的真实身份：能直接发邮件、打电话和付款，而不只是起草文字让你转发。'
+      ),
+      problemSolved: text(
+        'Chat assistants stop at suggestions. Cue gives each agent its own channels and a budgeted wallet, so tasks like answering calls or placing an order can be completed end to end.',
+        '聊天助手通常止步于建议。Cue 为每个智能体配备独立通道和有预算的钱包，接电话、下单这类任务可以从头到尾完成。'
+      ),
+      audience: text(
+        'People who want to hand off recurring personal or work errands to AI agents.',
+        '希望把重复的个人或工作事务交给 AI 智能体处理的人。'
+      ),
+      pricing: text(
+        'Free during early access with an invite code. Pricing after early access has not been announced; check cue.im for current terms.',
+        '抢先体验期间凭邀请码免费使用；正式定价尚未公布，请以 cue.im 当前信息为准。'
+      ),
+      market: [
+        text('Personal AI agents', '个人 AI 智能体'),
+        text('Task automation', '任务自动化'),
+        text('Multi-agent collaboration', '多智能体协作'),
+      ],
+      techStack: [
+        text('Manus 2.0 infrastructure', 'Manus 2.0 基础设施'),
+        text(
+          'Per-agent email, phone, and wallet',
+          '每个智能体独立邮箱、电话与钱包'
+        ),
+        text('Web, desktop, and mobile apps', '网页、桌面与移动端应用'),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'Manus', 'Manus'),
+      spec(
+        'Launched',
+        '发布时间',
+        'September 2026, with Manus 2.0',
+        '2026 年 9 月，随 Manus 2.0 发布'
+      ),
+      spec(
+        'Each agent gets',
+        '每个智能体拥有',
+        'Email · phone number · wallet · computer',
+        '邮箱 · 电话号码 · 钱包 · 电脑'
+      ),
+      spec('Access', '获取方式', 'Invite-only early access', '邀请制抢先体验'),
+    ],
+    seo: seo(
+      text(
+        'Cue by Manus is a personal AI agent app built on the same infrastructure as Manus. Unlike a chat assistant, every Cue agent has its own email address, phone number, wallet, and computer. Agents can answer calls and summarize them, send messages, pay within a budget you set, and work together in a group chat on a shared goal. Cue is available on web, desktop, and mobile during an invite-only early access.',
+        'Cue by Manus 是基于 Manus 同一套基础设施打造的个人 AI 智能体应用。与聊天助手不同，每个 Cue 智能体都有自己的邮箱地址、电话号码、钱包和电脑。智能体可以接听电话并生成摘要、发送消息、在你设定的预算内付款，还能在群聊中协作完成同一目标。抢先体验期间支持网页、桌面和移动端，需邀请码。'
+      ),
+      [
+        step(
+          'Get early access',
+          '获取体验资格',
+          'Sign up at cue.im with an invite code. New users receive extra codes to share.',
+          '在 cue.im 使用邀请码注册；获得资格后会收到可分享的邀请码。'
+        ),
+        step(
+          'Create an agent',
+          '创建智能体',
+          'Describe what the agent should handle. It is assigned its own email, phone number, and wallet.',
+          '描述智能体要负责的事务，系统会为它分配专属邮箱、电话号码和钱包。'
+        ),
+        step(
+          'Set limits and connect services',
+          '设置额度并连接服务',
+          'Set a spending limit, connect email, calendar, Slack, or Notion as triggers, and review the summaries it sends back.',
+          '设定消费上限，连接邮箱、日历、Slack 或 Notion 作为触发来源，并查看它回传的任务摘要。'
+        ),
+      ],
+      [
+        text(
+          'Dedicated email and phone number per agent',
+          '每个智能体专属邮箱和电话号码'
+        ),
+        text('Wallet with user-set spending limits', '可自定义消费上限的钱包'),
+        text('Answers calls and summarizes them', '代接电话并生成摘要'),
+        text('Agent group chats with task delegation', '智能体群聊与任务分派'),
+      ],
+      [
+        text('Delegating personal errands', '委托处理个人事务'),
+        text('Screening and handling calls', '筛选和处理来电'),
+        text(
+          'Coordinating several agents on one goal',
+          '让多个智能体协作完成同一目标'
+        ),
+      ],
+      [
+        faq(
+          'Is Cue the same as Manus?',
+          'Cue 和 Manus 是同一个产品吗？',
+          'No. Cue is a separate app from the Manus team, built on the same infrastructure. Manus focuses on producing deliverables; Cue gives personal agents their own identity to act with.',
+          '不是。Cue 是 Manus 团队推出的独立应用，与 Manus 共用基础设施。Manus 侧重交付成品，Cue 则为个人智能体提供可以行动的独立身份。'
+        ),
+        faq(
+          'Can a Cue agent spend my money?',
+          'Cue 智能体会动用我的钱吗？',
+          'Only through its wallet and within the spending limit you set. Review limits before connecting payment methods.',
+          '只能通过它的钱包、在你设定的消费上限内付款。连接支付方式前请先确认额度设置。'
+        ),
+        faq(
+          'Is Cue free?',
+          'Cue 免费吗？',
+          'It is free during invite-only early access. Later pricing has not been announced.',
+          '邀请制抢先体验期间免费，之后的定价尚未公布。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'ausar-ai',
+    name: 'Ausar AI',
+    maker: 'Ausar',
+    website: 'https://ausar.ai',
+    logo: 'https://ausar.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-04',
+    category: 'text-to-video',
+    categoryLabel: productCategoryLabels['text-to-video'],
+    relatedSlugs: ['higgsfield', 'kling-ai', 'seedance-2-5'],
+    tags: [
+      tag('multi-model-studio', 'Multi-model studio', '多模型创作台'),
+      tag('text-to-video', 'Text to video', '文生视频'),
+      tag('motion-control', 'Motion control', '动作控制'),
+      tag('ai-audio', 'AI audio', 'AI 音频'),
+    ],
+    tagline: text(
+      'One studio for AI video, image, and audio with Kling, Veo, Sora, and Seedance.',
+      '一个工作台集成 Kling、Veo、Sora、Seedance 等模型，生成 AI 视频、图片和音频。'
+    ),
+    description: text(
+      'Ausar is a web-based AI content studio that puts several leading generation models behind one account. You can turn text or images into video with Kling 3.0, Veo 3.1, Sora 2, or Seedance, create images with Nano Banana Pro or GPT Image, transfer movement with Motion Control, and generate speech or split vocals in the audio tools. Templates help build multi-shot social clips, and a credit-based subscription covers every model.',
+      'Ausar 是一个网页版 AI 内容创作台，用一个账号接入多款主流生成模型。你可以用 Kling 3.0、Veo 3.1、Sora 2 或 Seedance 把文字或图片变成视频，用 Nano Banana Pro、GPT Image 生成图片，用 Motion Control 迁移动作，还能在音频工具里合成语音或分离人声。模板可快速搭建多镜头短视频，所有模型共用一套积分订阅。'
+    ),
+    note: text(
+      'Best for: creators who want to compare top video models without separate subscriptions',
+      '适合：想在一个地方对比多款视频模型、又不想分别订阅的创作者'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Switch between Kling, Veo, Sora, Seedance, and image models in one workspace and pay from a single credit balance.',
+        '在同一工作区切换 Kling、Veo、Sora、Seedance 和图像模型，统一用一份积分付费。'
+      ),
+      problemSolved: text(
+        'Each video model lives on its own site with its own plan. Ausar gathers them, plus image editing and audio tools, so a whole short video can be made in one place.',
+        '各家视频模型分散在不同网站、各有订阅。Ausar 把它们连同图像编辑和音频工具集中在一起，一条短视频可以在一个地方做完。'
+      ),
+      audience: text(
+        'Social media creators, marketers, and small studios producing short AI videos and visuals.',
+        '制作 AI 短视频和视觉素材的社媒创作者、营销人员和小型工作室。'
+      ),
+      pricing: text(
+        'Free sign-up with no card required. Paid plans are monthly credit subscriptions, and subscribers get 10–25% off credit top-ups. Check ausar.ai/pricing for current plans.',
+        '免费注册，无需绑卡。付费方案为按月发放积分的订阅，订阅用户购买加量积分可享 10–25% 折扣。具体方案以 ausar.ai/pricing 为准。'
+      ),
+      market: [
+        text('AI video generation', 'AI 视频生成'),
+        text('AI image generation', 'AI 图像生成'),
+        text('Short-form social content', '社媒短视频内容'),
+      ],
+      techStack: [
+        text(
+          'Kling 3.0 · Veo 3.1 · Sora 2 · Seedance 2.5',
+          'Kling 3.0 · Veo 3.1 · Sora 2 · Seedance 2.5'
+        ),
+        text(
+          'Nano Banana Pro · GPT Image 2.5 · Seedream',
+          'Nano Banana Pro · GPT Image 2.5 · Seedream'
+        ),
+        text('Web app with shared credit balance', '网页应用，积分通用'),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'Ausar', 'Ausar'),
+      spec(
+        'Video models',
+        '视频模型',
+        'Kling 3.0, Veo 3.1, Sora 2, Seedance 2.5',
+        'Kling 3.0、Veo 3.1、Sora 2、Seedance 2.5'
+      ),
+      spec(
+        'Other tools',
+        '其他工具',
+        'Image generation · Motion Control · audio · templates',
+        '图像生成 · 动作控制 · 音频 · 模板'
+      ),
+      spec(
+        'Access',
+        '获取方式',
+        'Web; free sign-up, credit subscriptions',
+        '网页版；免费注册，积分订阅'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Ausar AI (ausar.ai) is an all-in-one AI creation studio for video, images, and audio. Instead of running a single in-house model, it gives you access to Kling 3.0, Veo 3.1, Sora 2, Seedance, Nano Banana Pro, GPT Image, and more from one dashboard. Beyond text-to-video and image-to-video, it offers Motion Control for transferring movement onto a character, AI influencer creation, image upscaling and background removal, speech generation, and vocal splitting. Its terms prohibit deepfakes or deceptive content meant to mislead or harm others.',
+        'Ausar AI（ausar.ai）是一站式 AI 视频、图片和音频创作平台。它不只依赖单一自研模型，而是在一个控制台里接入 Kling 3.0、Veo 3.1、Sora 2、Seedance、Nano Banana Pro、GPT Image 等模型。除了文生视频和图生视频，还提供把动作迁移到角色上的 Motion Control、AI 网红形象创建、图像放大与抠图、语音生成和人声分离。其服务条款禁止制作用于误导或伤害他人的深度伪造或欺骗性内容。'
+      ),
+      [
+        step(
+          'Sign up free',
+          '免费注册',
+          'Create an account at ausar.ai; no card is needed to start.',
+          '在 ausar.ai 注册账号，开始使用无需绑卡。'
+        ),
+        step(
+          'Pick a tool and model',
+          '选择工具和模型',
+          'Open Video, Image, Motion Control, or Audio and choose a model such as Kling 3.0, Veo 3.1, or Nano Banana Pro.',
+          '打开视频、图片、动作控制或音频工具，选择 Kling 3.0、Veo 3.1、Nano Banana Pro 等模型。'
+        ),
+        step(
+          'Generate and refine',
+          '生成并调整',
+          'Write a prompt or upload a reference image, generate, then upscale, extend, or combine clips with templates.',
+          '输入提示词或上传参考图生成内容，再放大、扩图，或用模板拼接成多镜头视频。'
+        ),
+      ],
+      [
+        text(
+          'Kling, Veo, Sora, and Seedance in one place',
+          'Kling、Veo、Sora、Seedance 集于一处'
+        ),
+        text(
+          'Motion Control for character movement',
+          '用 Motion Control 迁移角色动作'
+        ),
+        text(
+          'Image tools: generate, enhance, expand, remove background',
+          '图像工具：生成、增强、扩图、抠图'
+        ),
+        text('Speech generation and vocal splitting', '语音生成与人声分离'),
+      ],
+      [
+        text('Short social videos and ads', '社媒短视频与广告'),
+        text(
+          'Comparing video models on one prompt',
+          '用同一提示词对比视频模型'
+        ),
+        text('Product and portrait animations', '产品与人像动画'),
+      ],
+      [
+        faq(
+          'Does Ausar make its own video model?',
+          'Ausar 有自己的视频模型吗？',
+          'Ausar mainly provides access to third-party models such as Kling, Veo, Sora, and Seedance, together with its own templates and editing tools.',
+          'Ausar 主要接入 Kling、Veo、Sora、Seedance 等第三方模型，并配合自家的模板和编辑工具。'
+        ),
+        faq(
+          'Is Ausar AI free?',
+          'Ausar AI 免费吗？',
+          'Sign-up is free with no card required. Generating beyond what a free account allows uses credits from a paid plan or top-up.',
+          '注册免费且无需绑卡；超出免费额度的生成需要使用付费方案或加购的积分。'
+        ),
+        faq(
+          'Can I use Ausar outputs commercially?',
+          'Ausar 生成的内容可以商用吗？',
+          'Ausar says outputs can be used in ads, social posts, and client work. Check its terms and the rights of any people or brands shown.',
+          'Ausar 表示生成内容可用于广告、社媒和客户项目。使用前请查看其条款，并确认画面中人物或品牌的使用权。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'seedance-2-5',
+    name: 'Seedance 2.5',
+    aliases: [
+      'Seedance 2.5 AI',
+      'Dreamina Seedance 2.5',
+      'ByteDance Seedance 2.5',
+      'Seedance',
+      '即梦 Seedance 2.5',
+    ],
+    maker: 'ByteDance Seed',
+    website: 'https://dreamina.capcut.com/seedance/seedance-2-5',
+    logo: 'https://dreamina.capcut.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-04',
+    category: 'text-to-video',
+    categoryLabel: productCategoryLabels['text-to-video'],
+    relatedSlugs: ['dreamina-migos-ai-video', 'kling-ai', 'higgsfield'],
+    tags: [
+      tag('text-to-video', 'Text to video', '文生视频'),
+      tag('seedance', 'Seedance 2.5', 'Seedance 2.5'),
+      tag('native-audio', 'Native audio', '原生音频'),
+      tag('multi-reference', 'Multi-reference', '多参考输入'),
+    ],
+    tagline: text(
+      'ByteDance’s video model for 30-second 4K clips with audio, guided by up to 50 references.',
+      '字节跳动视频模型，一次生成 30 秒 4K 带音频视频，最多可用 50 个参考素材引导。'
+    ),
+    description: text(
+      'Seedance 2.5 is ByteDance Seed’s video generation model, released on July 31, 2026. It generates up to 30 seconds of continuous video in one run, with a beta long-video mode that extends to 3 minutes, and produces sound together with the picture. You can guide it with up to 50 references (30 images, 10 videos, and 10 audio clips), edit a specific part of a result, or use green-screen and 3D white-model inputs for tighter control. It is available on Dreamina and CapCut worldwide and on Jimeng and Doubao in China.',
+      'Seedance 2.5 是字节跳动 Seed 团队的视频生成模型，于 2026 年 7 月 31 日发布。它单次可连续生成最长 30 秒的视频，测试中的长视频模式可延长到 3 分钟，并且画面和声音同步生成。你可以用最多 50 个参考素材（30 张图片、10 段视频、10 段音频）引导生成，对结果做局部修改，或用绿幕和 3D 白模输入做更精确的控制。海外可在 Dreamina 和 CapCut 使用，国内可在即梦和豆包使用。'
+    ),
+    note: text(
+      'Best for: longer single-take AI clips that need consistent characters and matching sound',
+      '适合：需要角色一致、声画同步的较长单镜头 AI 视频'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Get a 30-second clip with audio in one generation instead of stitching several short shots together.',
+        '一次生成 30 秒带声音的片段，不必再把多段短镜头拼接起来。'
+      ),
+      problemSolved: text(
+        'Earlier video models capped clips at a few seconds, so longer scenes needed stitching and drifted between shots. Seedance 2.5 keeps one continuous take for longer and lets you fix parts of it without regenerating the whole clip.',
+        '早期视频模型单段只有几秒，较长的场景需要拼接，镜头之间容易跑偏。Seedance 2.5 可以保持更长的连续镜头，还能局部修改而不必整段重做。'
+      ),
+      audience: text(
+        'Filmmakers, marketing and ecommerce teams, social media creators, and agencies.',
+        '影视创作者、营销和电商团队、社媒创作者以及创意代理公司。'
+      ),
+      pricing: text(
+        'Dreamina gives free daily credits to try it. Paid Dreamina plans use credits, with launch pricing from about $0.097 per second of Seedance 2.5 video. Prices vary by region and plan.',
+        'Dreamina 每天赠送免费积分可试用。付费方案按积分计费，上线优惠价约每秒视频 0.097 美元起。价格因地区和方案而异。'
+      ),
+      market: [
+        text('AI video generation', 'AI 视频生成'),
+        text('Short-form ads and social content', '短视频广告与社媒内容'),
+        text('Previs and filmmaking', '影视预演与制作'),
+      ],
+      techStack: [
+        text('ByteDance Seed video model', '字节跳动 Seed 视频模型'),
+        text('Joint audio and video generation', '音视频联合生成'),
+        text(
+          'Dreamina · CapCut · Jimeng · Doubao',
+          'Dreamina · CapCut · 即梦 · 豆包'
+        ),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'ByteDance Seed', '字节跳动 Seed'),
+      spec('Released', '发布时间', 'July 31, 2026', '2026 年 7 月 31 日'),
+      spec(
+        'Clip length',
+        '视频时长',
+        'Up to 30 s per run; 3 min in long-video mode (beta)',
+        '单次最长 30 秒；长视频模式（测试）最长 3 分钟'
+      ),
+      spec(
+        'References',
+        '参考素材',
+        'Up to 50: 30 images, 10 videos, 10 audio',
+        '最多 50 个：30 张图、10 段视频、10 段音频'
+      ),
+      spec(
+        'Where to use',
+        '使用平台',
+        'Dreamina, CapCut, Jimeng, Doubao',
+        'Dreamina、CapCut、即梦、豆包'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Seedance 2.5 is the July 2026 update to ByteDance’s Seedance video models. Compared with Seedance 2.0, it raises the single-run length to 30 seconds, adds a 3-minute long-video mode in beta, and accepts up to 50 multimodal references, including images, video clips, and audio. Sound is generated together with the picture. An Intelligent Edit mode lets you change part of a clip, and green-screen and 3D white-model inputs (including Blender and Maya assets) help with precise motion and compositing. Dreamina and CapCut offer it worldwide; Jimeng and Doubao carry it in China. Use reference photos only of people who have agreed to it.',
+        'Seedance 2.5 是字节跳动 Seedance 视频模型在 2026 年 7 月的更新。相比 Seedance 2.0，它把单次生成时长提高到 30 秒，新增测试中的 3 分钟长视频模式，并支持最多 50 个多模态参考素材，包括图片、视频片段和音频。声音与画面一起生成。智能编辑模式可以修改片段中的局部内容，绿幕和 3D 白模输入（支持 Blender、Maya 资产）便于精确控制动作和合成。海外通过 Dreamina 和 CapCut 提供，国内在即梦和豆包上线。参考照片中的人物请确保已获得本人同意。'
+      ),
+      [
+        step(
+          'Open Seedance 2.5',
+          '打开 Seedance 2.5',
+          'Sign in to Dreamina (or Jimeng in China) and choose Seedance 2.5 as the video model.',
+          '登录 Dreamina（国内用即梦），在视频生成中选择 Seedance 2.5 模型。'
+        ),
+        step(
+          'Add a prompt and references',
+          '输入提示词和参考素材',
+          'Describe the scene, then add reference images, video, or audio for characters, motion, and style.',
+          '描述画面，再添加参考图片、视频或音频来确定角色、动作和风格。'
+        ),
+        step(
+          'Generate and edit',
+          '生成并修改',
+          'Generate up to 30 seconds, then use edit mode to fix parts or extend the clip.',
+          '生成最长 30 秒的视频，再用编辑模式修改局部或延长片段。'
+        ),
+      ],
+      [
+        text('30-second single-run clips', '单次生成 30 秒视频'),
+        text('Up to 50 multimodal references', '最多 50 个多模态参考'),
+        text('Audio generated with the video', '声音与画面同步生成'),
+        text(
+          'Intelligent Edit, green screen, and 3D white-model control',
+          '智能编辑、绿幕与 3D 白模控制'
+        ),
+      ],
+      [
+        text('Product ads and ecommerce videos', '产品广告与电商视频'),
+        text('Short film scenes and previs', '短片场景与预演'),
+        text('Social clips with consistent characters', '角色一致的社媒短视频'),
+      ],
+      [
+        faq(
+          'What is new in Seedance 2.5?',
+          'Seedance 2.5 有什么新变化？',
+          'Longer clips (30 seconds per run, 3 minutes in beta long-video mode), up to 50 references instead of 12, partial editing, and green-screen and 3D white-model control.',
+          '视频更长（单次 30 秒，测试中的长视频模式可达 3 分钟），参考素材从 12 个增加到 50 个，支持局部编辑以及绿幕和 3D 白模控制。'
+        ),
+        faq(
+          'Where can I use Seedance 2.5?',
+          '在哪里可以使用 Seedance 2.5？',
+          'On Dreamina and CapCut worldwide, and on Jimeng and Doubao in China. Third-party studios such as Ausar also offer it.',
+          '海外可在 Dreamina 和 CapCut 使用，国内可在即梦和豆包使用，Ausar 等第三方平台也已接入。'
+        ),
+        faq(
+          'Is Seedance 2.5 free?',
+          'Seedance 2.5 免费吗？',
+          'Dreamina gives free daily credits to try it. Regular use needs a credit plan; launch pricing starts at about $0.097 per second of video.',
+          'Dreamina 每天赠送免费积分可以试用。经常使用需要积分方案，上线优惠价约每秒 0.097 美元起。'
         ),
       ]
     ),

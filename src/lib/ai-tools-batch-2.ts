@@ -678,7 +678,7 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
     website: 'https://lmstudio.ai',
     category: 'assistant',
     tone: 'moss',
-    related: ['deepseek', 'qwen-chat'],
+    related: ['deepseek', 'qwen-chat', 'strata-llm'],
     tags: [
       ['local-ai', 'Local AI', '本地 AI'],
       ['open-models', 'Open models', '开源模型'],
@@ -767,6 +767,137 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '数据会离开我的电脑吗？',
         'With local models, inference runs on your machine.',
         '使用本地模型时，推理完全在你的电脑上进行。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'strata-llm',
+    name: 'Strata',
+    aliases: [
+      'Strata LLM',
+      'Strata AI',
+      'Strata local LLM',
+      'Strata 本地大模型',
+    ],
+    seoKeyword: 'Local LLM',
+    maker: 'Niko1221 (open source)',
+    website: 'https://github.com/Niko1221/Strata',
+    category: 'assistant',
+    tone: 'cobalt',
+    related: ['lm-studio', 'qwen-chat'],
+    tags: [
+      ['local-ai', 'Local LLM', '本地大模型'],
+      ['open-source', 'Open source', '开源'],
+      ['gaming-pc', 'Runs on a gaming PC', '游戏电脑可跑'],
+    ],
+    tagline: [
+      'Run a 125B-parameter LLM on your own gaming PC, free and offline.',
+      '在自己的游戏电脑上免费离线运行 1250 亿参数大模型。',
+    ],
+    description: [
+      'Strata (often searched as “Strata LLM”) is a free, open-source app that runs Qwen3.8-Flash-Next, a 125-billion-parameter model, on a normal gaming PC with a 12 GB NVIDIA or AMD card. It spreads the model across GPU, RAM, and SSD, then gives you a browser chat and an OpenAI-compatible local API.',
+      'Strata（常被搜索为“Strata LLM”）是一款免费开源应用，能在配有 12 GB NVIDIA 或 AMD 显卡的普通游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。它把模型分摊到显卡、内存和固态硬盘上，并提供浏览器聊天界面和兼容 OpenAI 的本地 API。',
+    ],
+    note: [
+      'Best for: running a large model at home with nothing leaving your PC',
+      '适合：在家用电脑上运行大模型，数据不出本机',
+    ],
+    value: [
+      'Server-class model quality on consumer hardware, with no per-token cost.',
+      '在消费级硬件上获得接近服务器级的大模型能力，不按 token 付费。',
+    ],
+    problem: [
+      'Models this large normally need a data-center GPU or a paid cloud API.',
+      '这种规模的模型通常需要数据中心级显卡或付费云端 API。',
+    ],
+    audience: [
+      'Gamers and developers with a 12 GB+ graphics card and 32 GB+ RAM who want a private local LLM.',
+      '拥有 12 GB 以上显卡和 32 GB 以上内存、想要私有本地大模型的玩家和开发者。',
+    ],
+    pricing: [
+      'Free and open source (MIT). You only need your own hardware and about 80 GB of disk space.',
+      '免费开源（MIT 协议）。只需自备硬件和约 80 GB 磁盘空间。',
+    ],
+    market: [
+      ['Local AI', '本地 AI'],
+      ['Open-source LLM tools', '开源大模型工具'],
+    ],
+    tech: [
+      [
+        'Qwen3.8-Flash-Next (125B MoE)',
+        'Qwen3.8-Flash-Next（1250 亿参数 MoE）',
+      ],
+      ['GPU + RAM + SSD offloading', '显卡 + 内存 + SSD 分层加载'],
+      [
+        'OpenAI- and Anthropic-compatible API',
+        '兼容 OpenAI 与 Anthropic 的 API',
+      ],
+    ],
+    whatIs: [
+      'Strata is the project people usually mean by “Strata LLM”: a local LLM engine and app that runs the 125-billion-parameter Qwen3.8-Flash-Next on a Windows or Linux gaming PC. The most-used experts stay on the graphics card, the rest sit in RAM, and a lookup table lives on the SSD. On an RTX 5070 it writes around 50 to 95 tokens per second depending on the model size. It chats, writes code, reads pictures, and connects to coding agents, all offline.',
+      'Strata 就是大家搜索“Strata LLM”时通常指的项目：一个本地大模型引擎和应用，可在 Windows 或 Linux 游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。最常用的专家留在显卡上，其余放在内存里，查找表存放在固态硬盘。在 RTX 5070 上，根据模型大小每秒可生成约 50 到 95 个 token。它能聊天、写代码、看图，还能接入编程 Agent，全程离线。',
+    ],
+    steps: [
+      [
+        'Download and run the installer',
+        '下载并运行安装程序',
+        'Get Strata from GitHub, then double-click START-HERE.bat on Windows or run ./setup.sh on Linux.',
+        '从 GitHub 下载 Strata，Windows 双击 START-HERE.bat，Linux 运行 ./setup.sh。',
+      ],
+      [
+        'Pick a model size',
+        '选择模型大小',
+        'The installer checks your card and RAM and recommends a size, then downloads about 70 GB once.',
+        '安装程序会检测显卡和内存并推荐合适的大小，然后一次性下载约 70 GB。',
+      ],
+      [
+        'Chat or connect your apps',
+        '聊天或接入应用',
+        'Open http://127.0.0.1:8080 to chat, or point any OpenAI-compatible app at http://127.0.0.1:8080/v1.',
+        '打开 http://127.0.0.1:8080 聊天，或把兼容 OpenAI 的应用指向 http://127.0.0.1:8080/v1。',
+      ],
+    ],
+    features: [
+      ['125B model on a 12 GB graphics card', '12 GB 显卡运行 1250 亿参数模型'],
+      ['Browser chat with a live hardware monitor', '浏览器聊天和实时硬件监控'],
+      [
+        'OpenAI- and Anthropic-compatible local API',
+        '兼容 OpenAI 与 Anthropic 的本地 API',
+      ],
+      [
+        'NVIDIA and AMD, Windows and Linux',
+        '支持 NVIDIA 与 AMD、Windows 与 Linux',
+      ],
+    ],
+    bestFor: [
+      ['Private chat and document work', '私密聊天和文档处理'],
+      ['A free backend for coding agents', '给编程 Agent 当免费后端'],
+      ['Testing a frontier-size open model at home', '在家体验前沿级开源模型'],
+    ],
+    faqs: [
+      [
+        'What is Strata LLM?',
+        'Strata LLM 是什么？',
+        'It usually refers to Strata, an open-source app on GitHub that runs the 125B Qwen3.8-Flash-Next model on a consumer gaming PC. The name is also used by unrelated research projects, such as a context-caching paper.',
+        '通常指 Strata，一个 GitHub 上的开源应用，能在消费级游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。这个名字也被一些无关的研究项目使用，比如一篇上下文缓存论文。',
+      ],
+      [
+        'What hardware do I need?',
+        '需要什么硬件？',
+        'An NVIDIA RTX 20–50 series or a recent AMD Radeon card with 12 GB of VRAM or more, at least 32 GB of RAM (64 GB runs every size), and about 80 GB of free SSD space.',
+        '需要 12 GB 以上显存的 NVIDIA RTX 20–50 系列或较新的 AMD Radeon 显卡，至少 32 GB 内存（64 GB 可运行所有尺寸），以及约 80 GB 固态硬盘空间。',
+      ],
+      [
+        'Is Strata free?',
+        'Strata 免费吗？',
+        'Yes. It is MIT-licensed open source and runs entirely on your PC, so there are no per-token fees.',
+        '免费。它采用 MIT 开源协议，完全在你的电脑上运行，没有按 token 收费。',
+      ],
+      [
+        'How is Strata different from LM Studio?',
+        'Strata 和 LM Studio 有什么不同？',
+        'LM Studio runs many open models that fit your machine. Strata is built around one very large model and squeezes it onto a gaming PC by splitting it across GPU, RAM, and SSD.',
+        'LM Studio 可运行多种适合你电脑的开源模型；Strata 专注于一个超大模型，通过把它拆分到显卡、内存和固态硬盘上，让游戏电脑也能跑起来。',
       ],
     ],
   }),
@@ -2662,6 +2793,134 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'elevenlabs-v4',
+    name: 'Eleven v4',
+    aliases: [
+      'ElevenLabs v4',
+      'ElevenLabs Eleven v4',
+      'Eleven v4 Turbo',
+      'ElevenLabs v4 Turbo',
+      'ElevenLabs',
+      'ElevenLabs TTS',
+      'ElevenLabs 语音模型',
+    ],
+    seoKeyword: 'ElevenLabs v4',
+    maker: 'ElevenLabs',
+    website: 'https://elevenlabs.io/v4',
+    category: 'audio',
+    tone: 'moss',
+    related: ['elevenlabs-avatars', 'cartesia'],
+    tags: [
+      ['text-to-speech', 'Text to speech', '文本转语音'],
+      ['voice-api', 'Voice API', '语音 API'],
+      ['realtime-voice', 'Real-time voice agents', '实时语音智能体'],
+    ],
+    tagline: [
+      'ElevenLabs’ most expressive voice model, plus a Turbo version for live agents.',
+      'ElevenLabs 表现力最强的语音模型，另有面向实时智能体的 Turbo 版本。',
+    ],
+    description: [
+      'Eleven v4 (searched as “ElevenLabs v4”) is the text-to-speech model ElevenLabs released on September 28, 2026. It reads a script the way a voice actor would, in 90+ languages, with audio tags like [laughs] and [whispers]. Eleven v4 Turbo brings the same voices to live AI agents at about 150 ms to first speech.',
+      'Eleven v4（常被搜索为“ElevenLabs v4”）是 ElevenLabs 于 2026 年 9 月 28 日发布的文本转语音模型。它像配音演员一样理解脚本，支持 90 多种语言，可用 [laughs]、[whispers] 等音频标签控制表达。Eleven v4 Turbo 把同样的声音带给实时 AI 智能体，首句语音延迟约 150 毫秒。',
+    ],
+    note: [
+      'Best for: expressive voiceovers and low-latency voice agents',
+      '适合：富有表现力的配音和低延迟语音智能体',
+    ],
+    value: [
+      'Natural, acted-sounding speech from one model, with a real-time variant for conversations.',
+      '一个模型就能生成自然、有表演感的语音，并有面向对话的实时版本。',
+    ],
+    problem: [
+      'Most TTS voices sound flat on long scripts or are too slow for live conversations.',
+      '大多数 TTS 声音在长脚本里显得平淡，或者速度太慢，无法用于实时对话。',
+    ],
+    audience: [
+      'Creators, audiobook and ad producers, and developers building voice agents.',
+      '创作者、有声书与广告制作者，以及开发语音智能体的开发者。',
+    ],
+    pricing: [
+      'Free plan with 10,000 credits a month; paid plans start at $6/month. v4 and v4 Turbo share the same credit pricing.',
+      '免费版每月 10,000 积分；付费套餐每月 6 美元起。v4 与 v4 Turbo 积分价格相同。',
+    ],
+    market: [
+      ['Text to speech', '文本转语音'],
+      ['Voice AI agents', '语音 AI 智能体'],
+    ],
+    tech: [
+      [
+        'Models eleven_v4 and eleven_v4_turbo',
+        '模型 eleven_v4 与 eleven_v4_turbo',
+      ],
+      ['Bidirectional streaming (Turbo)', '双向流式传输（Turbo）'],
+      ['Python and TypeScript SDKs', 'Python 与 TypeScript SDK'],
+    ],
+    whatIs: [
+      'Eleven v4 is the fourth generation of ElevenLabs’ speech model, the one people mean by “ElevenLabs v4”. It comes in two versions. Eleven v4 is tuned for produced audio such as voiceovers, audiobooks, and ads, with context stitching that keeps pacing and tone steady across long scripts of up to 10,000 characters. Eleven v4 Turbo is tuned for live calls and AI agents, streaming speech in about 150 ms. Both work with all 17,500+ library voices and, unlike v3, with Professional Voice Clones.',
+      'Eleven v4 是 ElevenLabs 第四代语音模型，也就是大家搜索的“ElevenLabs v4”。它有两个版本：Eleven v4 面向配音、有声书、广告等制作类音频，通过上下文衔接让长达 10,000 字符的长脚本保持节奏和语气一致；Eleven v4 Turbo 面向实时通话和 AI 智能体，约 150 毫秒即可开始输出语音。两者都支持全部 17,500 多个音色库声音，并且与 v3 不同，支持专业声音克隆。',
+    ],
+    steps: [
+      [
+        'Pick a voice',
+        '选择声音',
+        'Choose from 17,500+ library voices, design a new one, or clone your own.',
+        '从 17,500 多个音色中挑选，或设计新声音、克隆自己的声音。',
+      ],
+      [
+        'Write and tag the script',
+        '编写并标注脚本',
+        'Add audio tags like [laughs], [whispers], or [door slams] where you want them.',
+        '在需要的位置加入 [laughs]、[whispers]、[door slams] 等音频标签。',
+      ],
+      [
+        'Generate or stream',
+        '生成或流式输出',
+        'Render audio in the web app, or call eleven_v4 / eleven_v4_turbo through the API.',
+        '在网页应用中生成音频，或通过 API 调用 eleven_v4 / eleven_v4_turbo。',
+      ],
+    ],
+    features: [
+      ['90+ languages with native accents', '90 多种语言，口音地道'],
+      ['Audio tags for emotion and sound effects', '用音频标签控制情绪和音效'],
+      [
+        'About 150 ms to first speech with v4 Turbo',
+        'v4 Turbo 首句语音约 150 毫秒',
+      ],
+      ['Professional Voice Clones supported', '支持专业声音克隆'],
+    ],
+    bestFor: [
+      ['Voiceovers, ads, and audiobooks', '配音、广告和有声书'],
+      ['Real-time voice agents and phone bots', '实时语音智能体与电话机器人'],
+      ['Multilingual content', '多语言内容'],
+    ],
+    faqs: [
+      [
+        'What is ElevenLabs v4?',
+        'ElevenLabs v4 是什么？',
+        'It is Eleven v4, ElevenLabs’ text-to-speech model released on September 28, 2026, together with Eleven v4 Turbo for real-time use.',
+        '指 Eleven v4，ElevenLabs 于 2026 年 9 月 28 日发布的文本转语音模型，同时发布了面向实时场景的 Eleven v4 Turbo。',
+      ],
+      [
+        'What is the difference between Eleven v4 and v4 Turbo?',
+        'Eleven v4 和 v4 Turbo 有什么区别？',
+        'Eleven v4 aims for the best quality in produced audio. v4 Turbo keeps the same expressive range but streams in about 150 ms, so it suits live calls and AI agents.',
+        'Eleven v4 追求制作类音频的最佳质量；v4 Turbo 保留同样的表现力，但约 150 毫秒即可流式输出，适合实时通话和 AI 智能体。',
+      ],
+      [
+        'How is v4 different from Eleven v3?',
+        'v4 和 Eleven v3 有什么不同？',
+        'v4 is more consistent on long scripts, sequences audio tags better, adds a real-time Turbo version, and brings back Professional Voice Clones, which v3 did not support.',
+        'v4 在长脚本上更稳定，音频标签衔接更好，新增实时 Turbo 版本，并重新支持 v3 不支持的专业声音克隆。',
+      ],
+      [
+        'Is Eleven v4 free?',
+        'Eleven v4 免费吗？',
+        'You can try it on the free plan with 10,000 credits a month. Paid plans start at $6/month.',
+        '可以用免费版试用，每月 10,000 积分；付费套餐每月 6 美元起。',
+      ],
+    ],
+  }),
   // ─── Writing & detection ────────────────────────────────────────────────
   tool({
     slug: 'undetectable-ai',
@@ -3153,6 +3412,131 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '支持导出到哪些平台？',
         'YouTube Shorts, TikTok, and Instagram Reels.',
         'YouTube Shorts、TikTok 和 Instagram Reels。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'venice-ai',
+    name: 'Venice AI',
+    aliases: [
+      'Venice',
+      'Venice.ai',
+      'Uncensored AI chat',
+      'Private uncensored AI',
+      '无审查 AI',
+    ],
+    seoKeyword: 'Uncensored AI',
+    maker: 'Venice.ai',
+    website: 'https://venice.ai',
+    category: 'assistant',
+    tone: 'plum',
+    related: ['lm-studio', 'strata-llm', 'deepseek'],
+    tags: [
+      ['uncensored-ai', 'Uncensored AI', '无审查 AI'],
+      ['private-chat', 'Private chat', '私密对话'],
+      ['open-models', 'Open models', '开源模型'],
+    ],
+    tagline: [
+      'Private, uncensored AI chat that does not log your prompts.',
+      '不记录提示词的私密、无审查 AI 对话。',
+    ],
+    description: [
+      'Venice is a private AI platform often found when people search for “uncensored AI”. It runs open-weight models with fewer refusals than mainstream chatbots, keeps chats in your browser instead of on its servers, and also offers image, video, audio, and code tools plus an OpenAI-compatible API.',
+      'Venice 是一个私密 AI 平台，搜索“uncensored AI（无审查 AI）”时常会找到它。它运行开源模型，拒答比主流聊天机器人少，对话记录保存在你的浏览器而不是它的服务器上，同时提供图片、视频、音频和编程工具，以及兼容 OpenAI 的 API。',
+    ],
+    note: [
+      'Best for: frank answers and private chats without data logging',
+      '适合：想要直白回答、又不希望对话被记录的用户',
+    ],
+    value: [
+      'Ask anything and get direct answers, with prompts kept off company servers.',
+      '可以直接提问并得到直白的回答，提示词不留存在公司服务器上。',
+    ],
+    problem: [
+      'Mainstream chatbots refuse many legitimate questions and store conversations for review or training.',
+      '主流聊天机器人会拒绝不少正当问题，还会保存对话用于审核或训练。',
+    ],
+    audience: [
+      'Writers, researchers, developers, and privacy-minded users.',
+      '写作者、研究人员、开发者和注重隐私的用户。',
+    ],
+    pricing: [
+      'Free tier available. Pro is $18/month; higher Pro+ and Max plans include monthly credits. Check venice.ai for current pricing.',
+      '提供免费额度。Pro 每月 18 美元；更高的 Pro+ 和 Max 方案包含每月积分。具体以 venice.ai 为准。',
+    ],
+    market: [
+      ['Private AI chat', '私密 AI 对话'],
+      ['Uncensored AI', '无审查 AI'],
+      ['AI API', 'AI API'],
+    ],
+    tech: [
+      ['Open-weight and frontier models', '开源模型与前沿模型'],
+      [
+        'Anonymized, zero-retention, TEE, and end-to-end encrypted modes',
+        '匿名、零留存、TEE 可信执行和端到端加密模式',
+      ],
+      ['OpenAI-compatible API', '兼容 OpenAI 的 API'],
+    ],
+    whatIs: [
+      '“Uncensored AI” usually means a chatbot that answers sensitive or controversial questions directly instead of refusing. Venice is one of the best-known options: it serves open-weight models with lighter filtering, offers privacy modes from anonymized proxying to zero-retention, hardware-secured (TEE), and end-to-end encrypted inference, and stores chat history locally in your browser. Fewer filters does not mean no rules: illegal content is still off limits, and answers should be checked like any AI output.',
+      '“Uncensored AI（无审查 AI）”通常指会直接回答敏感或有争议问题、而不是拒答的聊天机器人。Venice 是其中最知名的选择之一：它提供过滤更少的开源模型，隐私模式从匿名代理、零留存，到硬件隔离（TEE）和端到端加密推理，并把聊天记录保存在你的本地浏览器中。过滤更少不等于没有规则：违法内容依然禁止，回答也应像其他 AI 输出一样自行核实。',
+    ],
+    steps: [
+      [
+        'Open Venice',
+        '打开 Venice',
+        'Go to venice.ai and start chatting; an account unlocks more usage.',
+        '访问 venice.ai 即可开始对话，注册账号可获得更多用量。',
+      ],
+      [
+        'Pick a model and privacy mode',
+        '选择模型和隐私模式',
+        'Choose an uncensored open model or another model, and the privacy level you need.',
+        '选择无审查开源模型或其他模型，以及所需的隐私级别。',
+      ],
+      [
+        'Chat, create, or call the API',
+        '对话、创作或调用 API',
+        'Ask questions, generate images or code, or connect apps through the API.',
+        '提问、生成图片或代码，或通过 API 接入你的应用。',
+      ],
+    ],
+    features: [
+      ['Uncensored open-weight chat models', '无审查开源对话模型'],
+      ['Chats stored locally in your browser', '对话记录保存在本地浏览器'],
+      ['Zero-retention, TEE, and E2EE modes', '零留存、TEE 和端到端加密模式'],
+      ['Image, video, audio, and code tools', '图片、视频、音频和编程工具'],
+      ['OpenAI-compatible API', '兼容 OpenAI 的 API'],
+    ],
+    bestFor: [
+      ['Questions mainstream chatbots refuse', '主流聊天机器人拒答的问题'],
+      ['Fiction and creative writing', '小说与创意写作'],
+      ['Private research and brainstorming', '私密研究与头脑风暴'],
+    ],
+    faqs: [
+      [
+        'What is uncensored AI?',
+        '什么是无审查 AI？',
+        'An AI model or chatbot with fewer refusal filters, so it answers controversial or sensitive topics directly. Venice is a hosted option; running open models locally with LM Studio is another.',
+        '指拒答过滤更少、会直接回答争议或敏感话题的 AI 模型或聊天机器人。Venice 是托管型选择；用 LM Studio 在本地运行开源模型是另一种方式。',
+      ],
+      [
+        'Is Venice AI free?',
+        'Venice AI 免费吗？',
+        'Yes, there is a free tier. Pro is $18/month for more usage and models.',
+        '有免费额度。Pro 每月 18 美元，可获得更多用量和模型。',
+      ],
+      [
+        'Does Venice store my chats?',
+        'Venice 会保存我的对话吗？',
+        'Venice says chat history stays in your browser and that its private models keep zero data on its servers.',
+        'Venice 表示聊天记录保存在你的浏览器中，其私密模型不会在服务器上留存数据。',
+      ],
+      [
+        'Is uncensored AI legal to use?',
+        '使用无审查 AI 合法吗？',
+        'Using a less-filtered chatbot is generally legal, but you are still responsible for what you create, and illegal content stays prohibited under Venice’s terms.',
+        '使用过滤较少的聊天机器人通常是合法的，但你仍需对生成内容负责，Venice 的条款同样禁止违法内容。',
       ],
     ],
   }),
