@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "daohangzhan",
+  "name": "viddir",
   "compatibility_flags": [
     "nodejs_compat",
     "nodejs_compat_populate_process_env",
@@ -9,15 +9,19 @@
     "enabled": true,
   },
   "vars": {
-    "DATABASE_PROVIDER": "postgresql",
+    "DATABASE_PROVIDER": "d1",
     "VITE_APP_URL": "https://www.viddir.com",
     "VITE_APP_NAME": "viddir",
     "VITE_APP_DESCRIPTION": "A directory of trending AI tools: what each tool does, how to use it, and where to find it.",
   },
-  "hyperdrive": [
+  // Neon (Hyperdrive 7f8a90bddcd04c6980232cb1fc7a34d1) hit its quota on
+  // 2026-10-29; moved to D1. Restore the hyperdrive block to switch back.
+  "d1_databases": [
     {
-      "binding": "HYPERDRIVE",
-      "id": "7f8a90bddcd04c6980232cb1fc7a34d1",
+      "binding": "DB",
+      "database_name": "viddir-db",
+      "database_id": "980755b1-ce95-4b85-bab2-6c9527d7f9c7",
+      "migrations_dir": "drizzle-d1",
     },
   ],
 }
